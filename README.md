@@ -34,6 +34,10 @@ Por último, configuremos correctamente la clave de la API:
 
 ![image](https://github.com/user-attachments/assets/30016a3a-bed3-46a0-b0ec-3d307febaeeb)
 
+Una vez hecho esto, ya tendremos la web desplegada:
+
+![image](https://github.com/user-attachments/assets/eb1418dc-d6ce-4646-bade-bbd729c4ad30)
+
 
 
 
