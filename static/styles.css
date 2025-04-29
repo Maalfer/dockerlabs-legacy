@@ -1,0 +1,512 @@
+/* Importar la fuente Fira Code desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?famil:Fira+Code:wght@400;700&displa:swap');
+
+body {
+    background: #1e1e2e;
+    color: #b7cfdd;
+    font-family: 'Fira Code', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-top:71px;
+}
+
+header {
+    background: #101119;
+    color: #fff;
+    text-align: center;
+    padding: 8px 16px; /* Reducido */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.header-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px; /* Reducido */
+}
+
+.header-buttons .left-buttons,
+.header-buttons .right-buttons {
+    display: flex;
+}
+
+.header-buttons button {
+    background: #333;
+    color: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+    padding: 8px 16px; /* Reducido */
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+    font-family: 'Fira Code', monospace; /* Aplicar Fira Code a los botones */
+}
+
+.header-buttons .left-buttons button {
+    margin-right: 16px; /* Reducido */
+}
+
+.header-buttons .right-buttons button {
+    margin-left: 8px; /* Reducido */
+}
+
+.header-buttons .right-buttons #botonmuyfacil { background: #36797e; }
+.header-buttons .right-buttons #botonfacil { background: #6da52d; }
+.header-buttons .right-buttons #botonmedio { background: #c79349; }
+.header-buttons .right-buttons #botondificil { background: #b9332a; }
+.header-buttons .right-buttons #botontodos { background: #535353; }
+
+.header-buttons button:hover {
+    background: #8db4ca;
+    color: #333;
+    border-color: #333;
+}
+
+.logo-container { margin-right: 8px; } /* Reducido */
+.raiola-container { margin-left: 8px; } /* Reducido */
+
+header h1 {
+    font-size: 24px; /* Reducido */
+    margin: 0;
+    flex: 1;
+    text-align: center;
+}
+
+.canal {
+    padding: 0;
+}
+
+.canal p {
+    color: #fff;
+    font-size: 14px; /* Reducido */
+    line-height: 1.4; /* Reducido */
+    margin: 8px 0; /* Reducido */
+}
+
+.canal a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.canal a:hover { text-decoration: underline; }
+
+.container {
+
+    padding-bottom: 100px; /* Reducido */
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Reducido */
+}
+
+.header input,
+.header select,
+.header button {
+    padding: 8px; /* Reducido */
+    margin-right: 8px; /* Reducido */
+    border: 1px solid #ccc;
+    border-radius: 6px; /* Reducido */
+}
+
+.header button:hover { background: #555; }
+
+#instrucciones,
+#academia,
+#ranking,
+#agradecimientos,
+#botonmuyfacil,
+#botonfacil,
+#botonmedio,
+#botondificil,
+#botontodos {
+    background: #333538;
+    color: #fff;
+    border: 2px solid #c0c0c0;
+    border-radius: 6px; /* Reducido */
+    cursor: pointer;
+    padding: 10px 10px; /* Reducido */
+    font-weight: bold;
+    text-align: center;
+    font-size: 12px; /* Reducido */
+    text-transform: uppercase;
+    transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Fira Code', monospace; /* Aplicar Fira Code a todos los botones */
+}
+
+#botonmuyfacil { background: #36797e; }
+#botonfacil { background: #6da52d; }
+#botonmedio { background: #c79349; }
+#botondificil { background: #b9332a; }
+
+#instrucciones:hover,
+#academia:hover,
+#ranking:hover,
+#agradecimientos:hover,
+#botonmuyfacil:hover,
+#botonmedio:hover,
+#botondificil:hover,
+#botonfacil:hover,
+#botontodos:hover {
+    background: #fff;
+    color: #333;
+    border-color: #333;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px; /* Reducido para ajustar el espacio entre columnas */
+}
+
+.columnaizquierda,
+.columnaderecha { width: 48%;}
+
+.size { 
+    margin-left: 8px; /* Reducido */ 
+}
+
+.item {
+    background: #101016;
+    padding: 8px; /* Reducido */
+    margin-bottom: 16px; /* Reducido */
+    border-radius: 6px; /* Reducido */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    outline: 2px solid #87bbc2;
+    box-shadow: 0 4px 8px rgba(2, 1, 1, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-height: 40px; /* Reducido */
+}
+
+.item span {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
+    font-size: 15px; /* Reducido */
+    flex: 1;
+}
+
+.item:hover {
+    background: #32324a;
+    border-color: #b7cfdd;
+    outline-color: #b0e0e6;
+}
+
+.item .badge {
+    font-size:80%;
+}
+
+.item .badge.muy-facil { background: #36797e; }
+.item .badge.facil { background: #6da52d; }
+.item .badge.medio { background: #c79349; }
+.item .badge.dificil { background: #b9332a; }
+
+.actions {
+    display: flex;
+    gap: 8px; /* Reducido */
+    align-items: center;
+    margin-left: 8px; /* Reducido */
+}
+
+.actions button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px; /* Reducido */
+    margin-left: 8px; /* Reducido */
+    font-family: 'Fira Code', monospace; /* Aplicar Fira Code a los botones en acciones */
+}
+
+.actions button:hover { color: #bbb; }
+
+footer {
+    background: transparent; /* Elimina el fondo del footer */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 12px 0;
+    text-align: center;
+    z-index: 2; /* Asegúrate de que el footer esté encima de las olas */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+    position: relative;
+    z-index: 3; /* Asegúrate de que el contenido esté sobre las olas */
+}
+
+.footer-content p { 
+    margin: 0; 
+}
+
+.footer-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-icon i {
+    font-size: 1.8em;
+    color: #fff;
+}
+
+.footer-icon:hover i { 
+    color: #ccc; 
+}
+
+.footer-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-link:hover { 
+    color: #ccc; 
+}
+
+/* Estilos para el contenedor de las olas */
+.wave-container {
+    position: fixed; /* Fijo para que siempre esté al fondo */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px; /* Ajusta la altura de las olas */
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Efecto de olas */
+.wave {
+    position: absolute;
+    left: 50%;
+    width: 200%;
+    height: 100px;
+    background: linear-gradient(to right, rgba(20, 21, 28, 0.893) 0%, rgba(26, 28, 45, 0.938) 50%, rgb(26, 33, 48) 100%);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: wave 5s linear infinite; /* Animación más rápida */
+}
+
+.wave.wave2 {
+    height: 120px;
+    background: linear-gradient(to right, rgba(20, 23, 40, 0.982) 0%, rgba(20, 31, 44, 0.776) 50%, rgba(24, 38, 71, 0.2) 100%);
+    animation: wave 5s linear infinite; /* Animación más rápida */
+}
+
+/* Animación de olas */
+@keyframes wave {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(12px); /* Aumentada la amplitud de 10px a 25px */
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Consultas de medios para dispositivos móviles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+
+    .logo-container,
+    header h1 {
+        margin: 0;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+
+    .list {
+        flex-direction: column;
+    }
+
+    .columnaizquierda,
+    .columnaderecha {
+        width: 100%;
+    }
+    /*
+    .item {
+        display: block;
+    }
+    .item span {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        font-size: 16px;
+    }
+
+    .item .badge {
+        display: inline-block;
+        margin: 3px;
+    }
+
+    .icon-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .icon-container button {
+        margin-bottom: 4px;
+        padding: 4px 8px;
+    }
+*/
+    .actions {
+        gap: 3px;
+    }
+
+    .actions button {
+        margin-left: 3px;
+    }
+
+    .footer-icons {
+        gap: 10px;
+    }
+
+    .footer-icon i {
+        font-size: 1.5em;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        width: 90%;
+        padding: 2px 0;
+    }
+
+    .footer-content p {
+        font-size: 12px;
+    }
+
+    .copyright {
+        display: none;
+    }
+
+    .raiola-container {
+        display: none;
+    }
+
+    .container {
+        padding-bottom: 100px;
+        
+    }
+
+    .item .size {
+        display: inline-block;
+        font-size: 14px;
+    }
+
+
+
+    /* Alineación de los botones de dificultad en una fila */
+    .header-buttons .right-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    
+}
+
+.zoom-effect {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.zoom-effect:hover {
+    transform: scale(1.1);
+}
+/**
+A partir de aquí añadido por Lenam
+**/
+.modal-close-button:active,
+.modal-close-button {
+    display:block;
+    width:25px;height:25px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s, transform 0.3s;
+    transform: scale(1);
+}
+
+.modal-close-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}       
+div.popup h1,
+div.popup h2 {
+    margin-top: 15px;
+    font-size: 32px;
+}
+
+input#search {
+    max-width: 130px;
+}
+@media (max-width: 768px) {
+    /** aquí todo lo que quieres modificar en la versión móvil **/
+    body {
+        padding-top:165px;
+    }
+    input#search {
+        max-width: 100%;
+        width: 100%;
+    }
+    header h1 {
+        margin-bottom: 10px;
+    }
+    div.popup {
+        min-width:85%;
+    }
+    /** parche para no ver separacion en versión móvil entre columnas, por el margin-bottom de cada item **/
+    .columnaizquierda > div.item:last-child { margin-bottom: 0px!important;}
+
+}
+#difficulty-filter > button {
+    border-color:#2b2b3f;
+}
+#difficulty-filter > button.selected {
+    border-color:#b7cfdd;
+}
+
+div.header.row > div > * {
+    margin-top: 15px;
+    display: inline-block;
+}

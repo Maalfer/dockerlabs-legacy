@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación API de DockerLabs</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        #tsparticles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Coloca el fondo detrás del contenido */
+            background-color: #1e1e2f; /* Color de fondo inicial */
+        }
+
+        h1 {
+            color: #00d1b2;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #00d1b2;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #00d1b2;
+            padding-bottom: 5px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #2a2a40;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative; /* Asegura que el contenido esté sobre el fondo */
+            z-index: 1;
+        }
+
+        pre {
+            background-color: #3a3a4f;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            color: #ffffff;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        code {
+            color: #00d1b2;
+            font-family: 'Courier New', monospace;
+        }
+
+        .note {
+            background-color: #3a3a4f;
+            padding: 10px;
+            border-left: 4px solid #00d1b2;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .note strong {
+            color: #00d1b2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor de partículas -->
+    <div id="tsparticles"></div>
+
+    <!-- Contenido principal -->
+    <h1>Documentación API de DockerLabs</h1>
+    <div class="container">
+        <p>
+            Esta página proporciona ejemplos de cómo usar la API de DockerLabs con <code>curl</code>.
+        </p>
+
+        <h2>1. Obtener un Token Temporal</h2>
+        <p>
+            Para obtener un token temporal, utiliza el siguiente comando <code>curl</code>. Esto solo está disponible para los administradores de dockerlabs.
+        </p>
+        <pre>
+curl -u usuario:contraseña https://dockerlabs.es/get_token
+        </pre>
+        <div class="note">
+            <strong>Nota:</strong> El token es válido por 1 hora y se requiere para acceder a algunos endpoints.
+        </div>
+
+        <h2>2. Subir Writeups</h2>
+        <p>
+            Para subir un writeup, utiliza el siguiente comando <code>curl</code> (no requiere autenticación):
+        </p>
+        <pre>
+curl -X POST -H "Content-Type: application/json" -d '{
+    "maquina": "Maquina1",
+    "autor": "Autor1",
+    "url": "http://example.com",
+    "tipo": "texto"
+}' https://dockerlabs.es/subirwriteups
+        </pre>
+
+        <h2>3. Añadir Writeup (con Token)</h2>
+        <p>
+            Para procesar writeups y actualizar el ranking, utiliza el siguiente comando <code>curl</code>:
+        </p>
+        <pre>
+curl -X POST -H "Content-Type: application/json" -d '{}' \
+https://dockerlabs.es/addwriteup?token=generated_token_here
+        </pre>
+
+        <h2>4. Ver Writeups (con Token)</h2>
+        <p>
+            Para ver los writeups almacenados, utiliza el siguiente comando <code>curl</code>:
+        </p>
+        <pre>
+curl https://dockerlabs.es/verwriteups?token=generated_token_here
+        </pre>
+
+        <h2>5. Añadir Máquina (con Token)</h2>
+        <p>
+            Para añadir una nueva máquina, utiliza el siguiente comando <code>curl</code>:
+        </p>
+        <pre>
+curl -X POST -H "Content-Type: application/json" -d '{
+    "nombre": "Maquina2",
+    "dificultad": "medio",
+    "autor": "Autor2",
+    "enlace_autor": "http://example.com/autor2",
+    "fecha": "2023/10/01",
+    "tamaño": "1GB",
+    "link_descarga": "http://example.com/download",
+    "posicion": "izquierda",
+    "descripcion": "Descripción de la máquina"
+}' https://dockerlabs.es/addmaquina?token=generated_token_here
+        </pre>
+
+        <h2>6. Obtener Datos de la API</h2>
+        <p>
+            Para obtener datos generales de la API, lo cual es ideal para tareas de web scraping, utiliza el siguiente comando <code>curl</code>:
+        </p>
+        <pre>
+curl https://dockerlabs.es/api
+        </pre>
+        <div class="note">
+            <strong>Nota:</strong> Dentro del endpoint <code>/api</code>, también se ofrece información detallada sobre cada máquina disponible en la plataforma. Esto incluye datos como la dificultad, el autor, el enlace del autor, la fecha de publicación, el tamaño del archivo, el enlace de descarga, la posición y una descripción de la máquina.
+        </div>
+
+        <h2>Notas Adicionales</h2>
+        <div class="note">
+            <strong>Importante:</strong> Los endpoints para subir writeups y para obtener todos los writeups y máquinas no requieren autenticación con el token temporal. 
+            Los endpoints para añadir máquinas o actualizar los rankings, solamente son accesibles por los administradores de DockerLabs (Mario).
+        </div>
+    </div>
+
+    <!-- Script para tsParticles -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.0.0/dist/tsparticles.min.js"></script>
+    <script>
+        tsParticles.load("tsparticles", {
+            fpsLimit: 60,
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#00d1b2"
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#00d1b2",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+</html>

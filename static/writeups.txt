@@ -1,0 +1,5 @@
+Máquina: BaluFood
+Autor: Litio7
+URL: https://litio7.github.io/posts/dockerlabs-writeup-balufood/
+Tipo: texto
+---
