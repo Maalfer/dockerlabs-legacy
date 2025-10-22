@@ -11,7 +11,7 @@ BASE_DIR = "/var/www/dockerlabs"
 app = Flask(__name__)
 auth = HTTPBasicAuth()
 
-USERNAME = "usuariofalso"
+USERNAME = "usuariofalso" # Esto claramente no es el correcto en producción, esta versión de dockerlabs está en proceso de ser reemplazada por una nueva con muchas mejores prácticas
 PASSWORD = "contraseñadeprueba"
 
 tokens = {}
