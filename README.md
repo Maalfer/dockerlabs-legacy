@@ -1,3 +1,7 @@
+# ATENCIÓN 
+
+Esta versión de dockerlabs es la antigua, la versión actual que se encuentra en producción es totalmente diferente a esta.
+
 # Proyecto de dockerlabs.es
 
 Para desplegar el entorno, se debe de utilizar apache, donde tendremos todos los archivos en /var/www/dockerlabs:
